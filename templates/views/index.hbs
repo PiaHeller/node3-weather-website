@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather</title>
+        <link rel="icon" href="/img/weather.png">
+        <link rel="stylesheet" href="/css/styles.css"> <!--absolute path-->
+
+        <!-- Scripts here are running before elements are rendered/available (deshalb besser am Ende des bodies) -->
+    </head>
+    <body> <!--Alles, was am Bildschirm angezeigt werden soll-->
+        <div class="main-content">
+            {{> header }}
+            <p>Use this site to get your weather!</p>
+
+            <form> <!-- Default behaviour of forms is to reload the page -> Lösung siehe app.js in clientside JS-->
+                <input placeholder="Location">
+                <button>Search</button>
+            </form>
+
+            <p id="message-1"></p>
+            <p id="message-2"></p>
+        </div>
+
+        {{> footer }}
+
+        <script src="/js/app.js"></script>
+    </body>
+</html>
+
+<!--<h1>{{ title }}</h1>-->
+<!-- Handlebar-Syntax; Dynamische Webseite -->
+
+<!-- CSS-Technik: Flexbox -->
