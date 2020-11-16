@@ -5,7 +5,6 @@ console.log("Client side javascript file is loaded!"); //Going to run in the Bro
     "fetch data from URL ... and then run the function (callback function)"
 */
 
-const url = "http://localhost:3000/weather?address=";
 const weatherForm = document.querySelector("form");
 const locationElement = document.querySelector("input");
 const messageOne = document.querySelector("#message-1");
@@ -19,7 +18,7 @@ weatherForm.addEventListener("submit", (e) => { //name of the event we're trying
     messageTwo.textContent = "";
 
     //We are only fetching when the form is submitted
-    fetch(url + location).then((response) => { //wie request in NodeJS
+    fetch("/weather?address=" + location).then((response) => { //wie request in NodeJS; heroku-URL oder localhost
     response.json().then((data) => { //callback function wird ausgeführt, wenn json-data hier ist und geparsed wurde (parsed json-data wird zurückgeliefert)
         console.log(data); //Javascript Object
 

@@ -9,6 +9,7 @@ const forecast = require("./utils/forecast.js"); //Auslagern
 
 
 const app = express(); //express() is a top-level function exported by the express module
+const port = process.env.PORT || 3000; //Port heroku or locally
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "../public"); //Zugriff auf den Ordner public
@@ -122,6 +123,6 @@ app.get("*", (req, res) => { //matching anything that hasn't been matched so far
 });
 
 
-app.listen(3000, () => {
-    console.log("Server is up on port 3000!"); //Wird natürlich nicht im Browser angezeigt
+app.listen(port, () => {
+    console.log("Server is up on port " + port + "!"); //Wird natürlich nicht im Browser angezeigt
 });
