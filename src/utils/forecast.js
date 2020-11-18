@@ -12,10 +12,12 @@ const forecast = (latitude, longitude, callback) => {
             const weatherDescription = body.current.weather_descriptions[0];
             const currentTemperature = body.current.temperature;
             const feelsLikeTemperature = body.current.feelslike;
+            const humidity = body.current.humidity;
             const data = {
                 weatherDescription, //weatherDescription: weatherDescription; Gleicher Name -> Kurzform
                 currentTemperature,
-                feelsLikeTemperature
+                feelsLikeTemperature,
+                humidity
             }
             callback(undefined, data);
         }
@@ -25,3 +27,4 @@ const forecast = (latitude, longitude, callback) => {
 module.exports = {
     forecast: forecast
 }
+

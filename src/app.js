@@ -70,7 +70,7 @@ app.get("/weather", (req, res) => { //request, response
         }
     
         //Callback
-        forecast.forecast(latitude, longitude, (error, { weatherDescription, currentTemperature, feelsLikeTemperature } = {}) => { //Wir starten eine weitere asychrone Funktion
+        forecast.forecast(latitude, longitude, (error, { weatherDescription, currentTemperature, feelsLikeTemperature, humidity } = {}) => { //Wir starten eine weitere asychrone Funktion
             if (error) {
                 return res.send({
                     error //Shorthand
@@ -78,7 +78,7 @@ app.get("/weather", (req, res) => { //request, response
             }
             //Erfolgreich: (clientside mithilfe von fetch darauf zugreifen)
             res.send({
-                forecast: weatherDescription + ". It is currently " + currentTemperature + " degrees out. It feels like " + feelsLikeTemperature + " degrees out.",
+                forecast: weatherDescription + ". It is currently " + currentTemperature + " degrees out. It feels like " + feelsLikeTemperature + " degrees out. The humidity is " + humidity + "%!",
                 location, //Shorthand
                 address //Shorthand
             });
